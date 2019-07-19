@@ -26,11 +26,11 @@ export default {
       },
       canGetUserKeeps: {
         success: false,
-        name: 'Can Get keeps by UserId',
+        name: 'Can Get keeps by User',
         routeInfo: {
           path: '/keeps/user',
           response: 'keeps[]',
-          description: 'Get request. This should get all keeps by logged in user.'
+          description: 'Get request. This should get all keeps by logged in user. The backend should validate the user Id'
         }
 
       },
