@@ -199,6 +199,10 @@
     background-color: #beeef7;
     background-image: url("https://www.transparenttextures.com/patterns/brushed-alum-dark.png");
     font-family: 'Alice', serif;
+    color: white !important;
+    text-shadow: -1px -1px black;
+
+
   }
 
   a,
@@ -208,7 +212,7 @@
 
   .welcome {
     font-weight: bold;
-    color: rgb(70, 69, 66);
+    /* color: rgb(70, 69, 66); */
     text-shadow: -1px -1px black;
   }
 
