@@ -9,7 +9,7 @@ export default {
         name: 'Can Create Keep',
         routeInfo: {
           path: '/keeps',
-          data: 'Keep object {name, description, img, isprivate}',
+          data: 'Keep object {name, description, img, isPrivate}',
           response: 'keep',
           description: 'Post request. This should create a keep in your database. Your backend should attach a userId.'
         }
