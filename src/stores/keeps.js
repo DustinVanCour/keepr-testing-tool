@@ -26,7 +26,7 @@ export default {
       },
       canGetUserKeeps: {
         success: false,
-        name: 'Can Get User',
+        name: 'Can Get keeps by UserId',
         routeInfo: {
           path: '/keeps/user',
           response: 'keeps[]',
@@ -36,7 +36,7 @@ export default {
       },
       canGetKeepById: {
         success: false,
-        name: 'Can Get Keep By Id',
+        name: 'Can Get Keep By keep Id',
         routeInfo: {
           path: '/keeps/:keepId',
           response: 'keep',
