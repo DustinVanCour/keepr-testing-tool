@@ -133,7 +133,8 @@
         keepOne: {
           img: "https://course_report_production.s3.amazonaws.com/rich/rich_files/rich_files/2248/s300/cw-logo-square-black-outline.jpg",
           description: "Boise codeworks logo testing one",
-          name: "testing one"
+          name: "testing one",
+          isPrivate: true
         },
         testVault: {
           name: 'test vault',
