@@ -28,7 +28,7 @@
   }
 
   .green {
-    background-color: #373a6d;
+    background-color: #50cf61;
   }
 
   .card {
