@@ -45,15 +45,29 @@ export default {
     setUser(state, payload) {
       state.user = payload
     },
-    setVaults(state, payload) {
-      state.vault = payload[0]
+    setVaultForVK(state, payload) {
+      state.vault = payload
     },
-    setKeep(state, payload) {
+    setKeepForVK(state, payload) {
       state.keep = payload
     }
   },
   actions: {
     // getVaultKeeps({ commit, dispatch })
+    getKeep({ commit, dispatch }) {
+      utils.api.get('keeps')
+        .then(res => {
+          commit('setKeepForVK', res.data[0])
+          dispatch('getVaults')
+        })
+    },
+    getVaults({ commit, dispatch }) {
+      utils.api.get('vaults')
+        .then(res => {
+          commit('setVaultForVK', res.data[0])
+          dispatch('createVaultKeep')
+        })
+    },
     createVaultKeep({ commit, dispatch, state }) {
       let vaultKeep = {
         vaultId: state.vault.id,
