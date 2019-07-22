@@ -2,15 +2,6 @@ import utils from '../utils.js'
 export default {
   state: {
     tests: {
-      canGetVK: {
-        name: 'Can Get Vault Keeps',
-        success: false,
-        routeInfo: {
-          path: '/vaultkeeps/:vaultId',
-          response: 'keeps[]',
-          description: 'Get request. This will get all the keeps that match the vualtId on the vaultkeep relationship table.'
-        }
-      },
       canCreateVK: {
         name: 'Can Create Vault Keep',
         success: false,
@@ -18,6 +9,15 @@ export default {
           path: '/vaultkeeps',
           data: 'vaultkeep {vaultId, keepId}',
           description: 'This will map a vaultkeep relationship. It needs a vaultId, a keepId, and a userId. You should add your userId from the backend.'
+        }
+      },
+      canGetVK: {
+        name: 'Can Get Vault Keeps',
+        success: false,
+        routeInfo: {
+          path: '/vaultkeeps/:vaultId',
+          response: 'keeps[]',
+          description: 'Get request. This will get all the keeps that match the vaultId on the vaultkeep relationship table.'
         }
       },
       canDeleteVK: {
