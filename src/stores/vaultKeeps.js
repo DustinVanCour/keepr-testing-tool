@@ -45,7 +45,7 @@ export default {
     setUser(state, payload) {
       state.user = payload
     },
-    setVault(state, payload) {
+    setVaults(state, payload) {
       state.vault = payload[0]
     },
     setKeep(state, payload) {
