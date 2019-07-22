@@ -113,6 +113,7 @@ export default {
     updateKeep({ commit, dispatch }, payload) {
       utils.api.put('keeps/' + payload.id, payload)
         .then(res => {
+          commit('setKeepState', 'canEditKeep')
           dispatch('deleteKeep')
         })
         .catch(err => { console.error(err) })
