@@ -40,7 +40,8 @@ export default {
         }
       },
     },
-    vaults: []
+    vaults: [],
+    vault: {}
   },
   mutations: {
     setState(state, prop) {
@@ -48,6 +49,9 @@ export default {
     },
     setVaults(state, payload) {
       state.vaults = payload
+    },
+    setVault(state, payload) {
+      state.vault = payload
     }
   },
   actions: {
@@ -66,13 +70,14 @@ export default {
         .then(res => {
           commit('setVaults', res.data)
           commit('setState', 'canGUV')
-          dispatch('getVaultById', res.data.id)
+          commit('setVault', res.data[0])
+          dispatch('getVaultById')
         })
         .catch(err => { console.error(err) })
 
     },
-    getVaultById({ commit, dispatch }, payload) {
-      utils.api.get('vaults/' + payload)
+    getVaultById({ commit, dispatch, state }) {
+      utils.api.get('vaults/' + state.vault.id)
         .then(res => {
           commit('setState', 'canGV')
           dispatch('deleteVault', res.data.id)
