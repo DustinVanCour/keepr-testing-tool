@@ -33,7 +33,7 @@ export default {
     vaultKeep: {},
     user: {},
     keep: {},
-    vaults: {}
+    vault: {}
   },
   mutations: {
     setVKState(state, prop) {
@@ -45,8 +45,8 @@ export default {
     setUser(state, payload) {
       state.user = payload
     },
-    setVaults(state, payload) {
-      state.vaults = payload[0]
+    setVault(state, payload) {
+      state.vault = payload[0]
     },
     setKeep(state, payload) {
       state.keep = payload
@@ -56,26 +56,25 @@ export default {
     // getVaultKeeps({ commit, dispatch })
     createVaultKeep({ commit, dispatch, state }) {
       let vaultKeep = {
-        vaultId: state.vaults.id,
-        userId: state.user.id,
+        vaultId: state.vault.id,
         keepId: state.keep.id
       }
       utils.api.post('vaultkeeps', vaultKeep)
         .then(res => {
           commit('setVKState', 'canCreateVK')
-          commit('setVaultKeep', res.data)
+          commit('setVaultKeep', vaultKeep)
           dispatch('getVaultKeeps', res.data)
         }).catch(err => console.error(err))
     },
-    getVaultKeeps({ commit, dispatch }, payload) {
-      utils.api.get('vaultkeeps/' + payload.vaultId)
+    getVaultKeeps({ commit, dispatch, state }) {
+      utils.api.get('vaultkeeps/' + state.vaultKeep.vaultId)
         .then(res => {
           commit('setVKState, canGetVK')
           dispatch('deleteVaultKeep', res.data[0])
         }).catch(err => console.error(err))
     },
-    deleteVaultKeep({ commit }, payload) {
-      utils.api.put('vaultkeeps', payload)
+    deleteVaultKeep({ commit, state }) {
+      utils.api.put('vaultkeeps', state.vaultKeep)
         .then(res => {
           commit('setVKState', 'canDeleteVK')
         })
